@@ -30,13 +30,14 @@ function show_modal(data, color, type) {
     var bullets = data.bullets || [];
     var reference = data.reference || "";
     type = type || "";
+	var actionicon = data.actionicon ||  "";
     color = color || "black"
 
     $("body").addClass("modal-open");
     $("#modal").addClass("modal-visible");
     $("#modal-backdrop").css("height", window.innerHeight + "px");
     $("#modal-container").css("background-color", color).css("border-color", color);
-    $("#modal-title").text(title).append("<span class=\"float-right\">" + type + "</span>");
+    $("#modal-title").text(title).append("<span style=\"font-family:'Pathfinder_Icons'\"> " + actionicon + "</span>").append("<span class=\"float-right\">" + type + "</span>");
     $("#modal-subtitle").text(subtitle);
     $("#modal-reference").text(reference);
 
@@ -57,7 +58,7 @@ function fill_section(data, parentname, type) {
 }
 
 function init() {
-    fill_section(data_movement, "basic-movement", "Move");
+    //fill_section(data_movement, "basic-movement", "Move");
     fill_section(data_action, "basic-actions", "Action");
     fill_section(data_bonusaction, "basic-bonus-actions", "Bonus action");
     fill_section(data_reaction, "basic-reactions", "Reaction");
